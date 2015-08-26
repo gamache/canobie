@@ -19,6 +19,11 @@ defmodule Canobie.Router do
     get "/", PageController, :index
   end
 
+  scope "/api", Canobie do
+    pipe_through :api
+
+    get "/users/:name", UsersController, :show
+  end
   # Other scopes may use custom stacks.
   # scope "/api", Canobie do
   #   pipe_through :api

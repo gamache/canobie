@@ -4,4 +4,8 @@ defmodule Canobie.PageController do
   def index(conn, _params) do
     render conn, "index.html"
   end
+
+  def user(conn, %{"name" => name}) do
+    
+  end
 end
