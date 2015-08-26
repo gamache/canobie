@@ -1,7 +1,7 @@
 # Canobie
 
 A scavenger hunt checklist webapp.  Server side in Elixir + Phoenix,
-client side in JS + React.
+client side in JS but definitely no React.
 
 ## Running
 
