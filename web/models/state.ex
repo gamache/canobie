@@ -22,5 +22,10 @@ defmodule Canobie.State do
             where: u.name == ^name
     Canobie.Repo.all(query) |> List.first
   end
+
+  def apply_updates(state, updates) do
+    new_state_map = Map.merge(state.state, updates)
+    %{state | state: new_state_map}
+  end
 end
 
