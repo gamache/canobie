@@ -5,7 +5,7 @@ defmodule Canobie.UsersController do
   alias Canobie.User
 
   def show(conn, %{"name" => name}) do
-    case Repo.all from u in User, where: u.name == ^name, preload: [:team] do
+    case Repo.all from u in User, where: u.name == ^name, preload: [team: :state] do
       [] ->
         conn |> put_status(404) |> json %{error: "not found"}
       [user] ->

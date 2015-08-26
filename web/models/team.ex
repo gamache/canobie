@@ -4,6 +4,7 @@ defmodule Canobie.Team do
   schema "teams" do
     field :name
     has_many :users, Canobie.User
+    has_one :state, Canobie.State
     timestamps
   end
 

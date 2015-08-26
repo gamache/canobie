@@ -23,9 +23,8 @@ defmodule Canobie.Router do
     pipe_through :api
 
     get "/users/:name", UsersController, :show
+
+    get "/users/:name/state", StatesController, :show
+    patch "/users/:name/state", StatesController, :update
   end
-  # Other scopes may use custom stacks.
-  # scope "/api", Canobie do
-  #   pipe_through :api
-  # end
 end
