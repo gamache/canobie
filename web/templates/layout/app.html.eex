@@ -1,31 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
+  <title>Localytics Scavenger Hunt 2014</title>
+  <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  <meta content='width=device-width' name='viewport'>
+</head>
+<body>
+  <header>
+    <div class='screen' id='logo'></div>
+    <h1>
+      <span class='print'>Localytics</span>
+      Scavenger Hunt 2015
+    </h1>
+  </header>
 
-    <title>Hello Phoenix!</title>
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-  </head>
+  <%= @inner %>
+  <footer>
+    <%#<h2>Enjoy!</h2>%>
+  </footer>
+  <script src='//use.typekit.net/mgr1bnc.js'></script>
+  <script>try { Typekit.load() } catch(e) {}</script>
+  <!-- I wrote this five years ago! hee hee -->
+  <script src='DSt.js'></script>
+  <%#<!-- I hadn't used Zepto before. I don't think I will use jQuery again -->%>
+  <%#<script src='zepto.min.js'></script>%>
+  <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  <script>
+    $(function(){
+      var setColor = function (elt) {
+        var key = elt.innerHTML;
+        if (DSt.get(key) == 1) {
+          $(elt).addClass("selected");
+        } else {
+          $(elt).removeClass("selected");
+        }
+      };
+      $("li > b").each(function(){ setColor(this); });
 
-  <body>
-    <div class="container" role="main">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-        </ul>
-        <span class="logo"></span>
-      </div>
+      var handleClick = function (event) {
+        var elt = event.target;
+        DSt.set(elt.innerHTML, $(elt).hasClass("selected") ? 0 : 1);
+        setColor(elt);
+      };
+      $("li > b").on("click", handleClick);
 
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
-      <%= @inner %>
-
-    </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-  </body>
+    });
+  </script>
+</body>
 </html>
+
+
