@@ -1,7 +1,7 @@
 defmodule Canobie.Endpoint do
   use Phoenix.Endpoint, otp_app: :canobie
 
-  socket "/socket", Canobie.UserSocket
+  socket "/socket", Canobie.StateSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #

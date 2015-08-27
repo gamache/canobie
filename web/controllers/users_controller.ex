@@ -5,10 +5,10 @@ defmodule Canobie.UsersController do
   alias Canobie.User
 
   def show(conn, %{"name" => name}) do
-    case Repo.all from u in User, where: u.name == ^name, preload: [team: :state] do
-      [] ->
+    case Canobie.User.get_by_name(name, [team: :state]) do
+      nil ->
         conn |> put_status(404) |> json %{error: "not found"}
-      [user] ->
+      user ->
         conn |> render "show.json", user: user
     end
   end

@@ -15,4 +15,12 @@ defmodule Canobie.User do
     |> cast(params, @required_fields, @optional_fields)
   end
 
+  def get_by_name(name, preload \\ []) do
+    from(u in Canobie.User,
+      where: u.name == ^name,
+      preload: ^preload)
+    |> Canobie.Repo.all
+    |> List.first
+  end
+
 end

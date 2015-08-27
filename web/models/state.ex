@@ -16,11 +16,12 @@ defmodule Canobie.State do
   end
 
   def get_by_user_name(name) do
-    query = from s in Canobie.State,
-            join: t in assoc(s, :team),
-            join: u in assoc(t, :users),
-            where: u.name == ^name
-    Canobie.Repo.all(query) |> List.first
+    from(s in Canobie.State,
+      join: t in assoc(s, :team),
+      join: u in assoc(t, :users),
+      where: u.name == ^name)
+    |> Canobie.Repo.all
+    |> List.first
   end
 
   def apply_updates(state, updates) do
