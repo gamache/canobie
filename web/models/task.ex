@@ -32,12 +32,6 @@ defmodule Canobie.Task do
       },
 
       %{
-        id: "sepia",
-        name: "Get a Wild West photo taken of your team",
-        points: 100
-      },
-
-      %{
         id: "flume-pic",
         name: "Take a team picture on the Log Flume",
         points: 100
@@ -74,6 +68,12 @@ defmodule Canobie.Task do
       },
 
       %{
+        id: "sepia",
+        name: "Get a Wild West photo taken of your team",
+        points: 100
+      },
+
+      %{
         id: "three",
         name: "Sink a Three-Pointer",
         points: 100
@@ -81,7 +81,7 @@ defmodule Canobie.Task do
 
       %{
         id: "endurance",
-        name: "Sit through at least two minutes of a musical",
+        name: "Sit through at least two minutes of a godawful musical",
         points: 50
       },
 
@@ -147,14 +147,38 @@ defmodule Canobie.Task do
 
       %{
         id: "mating-ritual",
-        name: "Stumble upon under-13 kids flirting with each other",
+        name: "Stumble upon under-13 kids flirting",
         points: 100
+      },
+
+      %{
+        id: "butts",
+        name: "Observe harried parent ripping butts in smoking gazebo",
+        points: 100
+      },
+
+      %{
+        id: "hahley",
+        name: "Pick out five Harley-Davidson shirts in the crowd",
+        points: 100
+      },
+
+      %{
+        id: "bitch",
+        name: "Complain to anyone about at least one missing or broken amusement",
+        points: 50
       },
 
       %{
         id: "enough-fucking-dough",
         name: "Eat an average of at least three orders of fried dough per team member",
         points: 1000
+      },
+
+      %{
+        id: "finale",
+        name: "And then ride the Turkish Twist three more times",
+        points: 3000
       }
     ]
   end
