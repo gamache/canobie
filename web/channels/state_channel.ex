@@ -1,8 +1,6 @@
 defmodule Canobie.StateChannel do
   use Phoenix.Channel
 
-  #intercept ["update"]
-
   def join("state:" <> team_id, _auth_msg, socket) do
     socket = assign(socket, :team_id, team_id)
     case Canobie.State.get_by_team_id(team_id) do

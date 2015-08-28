@@ -1,16 +1,16 @@
-<section id="comingsoon">
-  <h2>Coming soon...</h2>
-
-
-  <section id="coasters">
-    <%= for c <- [%{ id: "yankee", name: "Yankee Cannonball" },
-                  %{ id: "corkscrew", name: "Corkscrew" },
-                  %{ id: "untamed", name: "Untamed" }] do %>
-      <input type="checkbox" class="task" id=<%= c[:id] %>>
-      <label for=<%= c[:id] %>><%= c[:name] %></label>
-      <br>
-    <% end %>
-  </section>
-
+<section id="rides">
+  <h1>Rides</h1>
+  <%= for section <- Canobie.Rides.rides do %>
+    <section>
+      <h2><%= section[:name] %></h2>
+      <%= for ride <- section[:rides] do %>
+        <p>
+          <input type="checkbox" class="task" id=<%= ride[:id] %>>
+          <label for=<%= ride[:id] %>><%= ride[:name] %></label>
+          <br>
+          <%= ride[:desc] %>
+      <% end %>
+    </section>
+  <% end %>
 </section>
 

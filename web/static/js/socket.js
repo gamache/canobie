@@ -11,10 +11,7 @@ stateSocket.connect();
 
 let stateChannel = stateSocket.channel("state:0", {});
 stateChannel.join()
-  .receive("ok", resp => {
-    console.log("oh yeah", resp.state);
-    update_state(resp.state);
-  })
+  .receive("ok", resp => { update_state(resp.state); })
   .receive("error", resp => { console.log("oh noez", resp); });
 
 function update_state(state) {
@@ -24,17 +21,15 @@ function update_state(state) {
   }
 }
 
-stateChannel.on('update', payload => {
-  console.log(payload);
+stateChannel.on("update", payload => {
   update_state(payload);
 });
 
-$('input.task').on('click', e => {
+$("input.task").on("click", e => {
   let val = $(e.srcElement).is(":checked") ? 1 : 0;
   var payload = {};
   payload[e.srcElement.id] = val;
-  stateChannel.push('update', payload);
-  console.log(val);
+  stateChannel.push("update", payload);
 });
 
 
