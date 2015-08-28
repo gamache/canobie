@@ -14,15 +14,20 @@
   <h1>Rules</h1>
 
   <ul>
-    <li>Rides or tasks must involve 3/4 of your team to be checked off.</li>
-    <li>Don't check off items after 1pm.</li>
-    <li>Point values are secret. Optimize for fun.</li>
     <li>
-      This application has no security features whatsoever.
+      Rides or tasks must involve 3/4 of your team to be checked off.
+    </li>
+    <li>
+      Don't check off items after 1pm.
+    </li>
+    <li>
+      Completism is rewarded, but point values are secret.<br>
+      Optimize for fun.
+    </li>
+    <li>
+      This application has no security features whatsoever.<br>
       Cheating is boring, and therefore disallowed.
     </li>
   </ul>
-
-  <h2>Enjoy!</h2>
 </section>
 
