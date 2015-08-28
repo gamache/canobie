@@ -36,12 +36,15 @@ defmodule Canobie.State do
   end
 
   def starting_state do
-    Enum.reduce(Canobie.Rides.rides, %{}, fn(r, acc) -> Map.put(acc, r[:id], 0) end)
+    Map.merge(
+      Enum.reduce(Canobie.Rides.rides, %{}, fn(r, acc) -> Map.put(acc, r[:id], 0) end),
+      Enum.reduce(Canobie.Task.tasks, %{}, fn(r, acc) -> Map.put(acc, r[:id], 0) end)
+    )
   end
 
   def score(state) do
     Enum.reduce(state.state, 0, fn({k, v}, acc) ->
-      points = Canobie.Rides.points_by_ride[k] || 0
+      points = Canobie.Hunt.points_by_id[k] || 0
       acc + points * v
     end)
   end

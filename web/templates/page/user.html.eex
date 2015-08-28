@@ -12,12 +12,25 @@
       <h2><%= section[:name] %></h2>
       <%= for ride <- section[:rides] do %>
         <p>
-          <input type="checkbox" class="task" id=<%= ride[:id] %>>
+          <input type="checkbox" class="ride" id=<%= ride[:id] %>>
           <label for=<%= ride[:id] %>><%= ride[:name] %></label>
           <br>
           <%= ride[:desc] %>
+        </p>
       <% end %>
     </section>
   <% end %>
 </section>
+
+<section id="tasks">
+  <h1>Tasks</h1>
+
+  <%= for task <- Canobie.Task.tasks do %>
+    <p>
+      <input type="checkbox" class="task" id=<%= task[:id] %>>
+      <label for=<%= task[:id] %>><%= task[:name] %></label>
+    </p>
+  <% end %>
+</section>
+
 
