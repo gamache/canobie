@@ -20,6 +20,12 @@ defmodule Canobie.Task do
       },
 
       %{
+        id: "pinball",
+        name: "Play some pinball",
+        points: 50
+      },
+
+      %{
         id: "monroe",
         name: "Spot Marilyn Monroe",
         points: 50
@@ -39,14 +45,14 @@ defmodule Canobie.Task do
 
       %{
         id: "soaked",
-        name: "Get completely soaked",
+        name: "Get completely drenched",
         points: 150
       },
 
       %{
-        id: "pinball",
-        name: "Play some pinball",
-        points: 50
+        id: "twice",
+        name: "Ride something twice",
+        points: 100
       },
 
       %{
@@ -74,6 +80,12 @@ defmodule Canobie.Task do
       },
 
       %{
+        id: "endurance",
+        name: "Sit through at least two minutes of a musical",
+        points: 50
+      },
+
+      %{
         id: "softserve",
         name: "Spoil your appetite with soft-serve ice cream",
         points: 50
@@ -87,7 +99,7 @@ defmodule Canobie.Task do
 
       %{
         id: "penny",
-        name: "Toss a penny in the wishing well",
+        name: "Toss a coin in the wishing well",
         points: 50
       },
 
@@ -104,6 +116,12 @@ defmodule Canobie.Task do
       },
 
       %{
+        id: "helium",
+        name: "Huff a helium balloon (at least three team members!)",
+        points: 50
+      },
+
+      %{
         id: "tailgate",
         name: "Tailgate in the parking lot",
         points: 100
@@ -112,13 +130,13 @@ defmodule Canobie.Task do
       %{
         id: "evidence",
         name: "Find and photograph evidence of a defunct Canobie coaster",
-        points: 100
+        points: 200
       },
 
       %{
         id: "fivedough",
-        name: "Eat more than five fried doughs per person",
-        points: 2000
+        name: "Eat more than five fried doughs as a team",
+        points: 200
       },
 
       %{
@@ -129,8 +147,14 @@ defmodule Canobie.Task do
 
       %{
         id: "mating-ritual",
-        name: "Find under-13 kids flirting with each other",
+        name: "Stumble upon under-13 kids flirting with each other",
         points: 100
+      },
+
+      %{
+        id: "enough-fucking-dough",
+        name: "Eat an average of at least three orders of fried dough per team member",
+        points: 1000
       }
     ]
   end

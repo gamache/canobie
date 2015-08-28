@@ -15,13 +15,11 @@
 
   <%= @inner %>
   <footer>
-    <%#<h2>Enjoy!</h2>%>
+    <h2>Enjoy!</h2>
   </footer>
-  <script src='//use.typekit.net/mgr1bnc.js'></script>
-  <script>try { Typekit.load() } catch(e) {}</script>
+  <%#<script src='//use.typekit.net/mgr1bnc.js'></script>%>
+  <%#<script>try { Typekit.load() } catch(e) {}</script>%>
   <script src="<%= static_path(@conn, "/js/zepto.min.js") %>"></script>
-  <!-- I wrote this five years ago! hee hee -->
-  <script src="<%= static_path(@conn, "/js/DSt.js") %>"></script>
   <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   <script>
     $ = Zepto;
