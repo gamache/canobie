@@ -24,6 +24,12 @@ defmodule Canobie.State do
     |> List.first
   end
 
+  def get_by_team_id(team_id) do
+    from(s in Canobie.State, where: s.team_id == ^team_id)
+    |> Canobie.Repo.all
+    |> List.first
+  end
+
   def apply_updates(state, updates) do
     new_state_map = Map.merge(state.state, updates)
     %{state | state: new_state_map}

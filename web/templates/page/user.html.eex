@@ -2,8 +2,15 @@
   <h2>Coming soon...</h2>
 
 
-  <input id="field">
-  <input id="button" type="submit">
+  <section id="coasters">
+    <%= for c <- [%{ id: "yankee", name: "Yankee Cannonball" },
+                  %{ id: "corkscrew", name: "Corkscrew" },
+                  %{ id: "untamed", name: "Untamed" }] do %>
+      <input type="checkbox" class="task" id=<%= c[:id] %>>
+      <label for=<%= c[:id] %>><%= c[:name] %></label>
+      <br>
+    <% end %>
+  </section>
 
 </section>
 

@@ -1,12 +1,29 @@
 defmodule Canobie.StateChannel do
   use Phoenix.Channel
 
+  #intercept ["update"]
+
   def join("state:" <> team_id, _auth_msg, socket) do
-    {:ok, socket}
+    socket = assign(socket, :team_id, team_id)
+    case Canobie.State.get_by_team_id(team_id) do
+      nil ->
+        {:ok, %{state: %{}}, socket}
+      state ->
+        {:ok, %{state: state.state}, socket}
+    end
   end
 
-  def handle_in("update", %{"body" => body}, socket) do
-    broadcast! socket, "update", %{body: body}
+  def handle_in("update", updates, socket) do
+    case Canobie.State.get_by_team_id(socket.assigns[:team_id]) do
+      nil ->
+        broadcast! socket, "update", %{poop: true}
+      state ->
+        state = state
+                |> Canobie.State.apply_updates(updates)
+                |> Canobie.Repo.update!
+        broadcast! socket, "update", state.state
+    end
+    #broadcast! socket, "update", updates
     {:noreply, socket}
   end
 
@@ -15,3 +32,4 @@ defmodule Canobie.StateChannel do
     {:noreply, socket}
   end
 end
+
