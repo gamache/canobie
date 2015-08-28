@@ -192,7 +192,7 @@ defmodule Canobie.Rides do
       %{
         id: "caterpillar",
         name: "Caterpillar",
-        desc: "A flat ride where the lights go out.",
+        desc: "A fast, hilly ride.  Who turned the lights out?!",
         points: 30
       },
 
@@ -208,6 +208,13 @@ defmodule Canobie.Rides do
         name: "Mine of Lost Souls",
         desc: "Dark and spooky!",
         points: 30
+      },
+
+      %{
+        id: "any-other-ride",
+        name: "Any Other Ride",
+        desc: "Roosters! Canobie Express! Wave Blaster! Kiddie rides! You name it!",
+        points: 50
       }
     ]
   end

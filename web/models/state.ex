@@ -43,10 +43,7 @@ defmodule Canobie.State do
   end
 
   def score(state) do
-    Enum.reduce(state.state, 0, fn({k, v}, acc) ->
-      points = Canobie.Hunt.points_by_id[k] || 0
-      acc + points * v
-    end)
+    Canobie.Score.score(state)
   end
 end
 
