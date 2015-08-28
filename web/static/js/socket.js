@@ -70,6 +70,18 @@ stateChannel.join()
   .receive("error", resp => { console.log("oh noez", resp); });
 
 
+$('#button').on('click', e => {
+  let newval = $('#field').val();
+  console.log(newval);
+  stateChannel.push('update', {body: newval});
+});
+
+stateChannel.on('update', payload => {
+  console.log(payload);
+  $('#field').val(payload.body);
+});
+
+
 
 
 export default stateSocket

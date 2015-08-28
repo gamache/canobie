@@ -19,12 +19,12 @@
   </footer>
   <script src='//use.typekit.net/mgr1bnc.js'></script>
   <script>try { Typekit.load() } catch(e) {}</script>
+  <script src="<%= static_path(@conn, "/js/zepto.min.js") %>"></script>
   <!-- I wrote this five years ago! hee hee -->
-  <script src='DSt.js'></script>
-  <%#<!-- I hadn't used Zepto before. I don't think I will use jQuery again -->%>
-  <%#<script src='zepto.min.js'></script>%>
+  <script src="<%= static_path(@conn, "/js/DSt.js") %>"></script>
   <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   <script>
+    $ = Zepto;
     $(function(){
       var setColor = function (elt) {
         var key = elt.innerHTML;
@@ -44,6 +44,8 @@
       $("li > b").on("click", handleClick);
 
     });
+
+
   </script>
 </body>
 </html>

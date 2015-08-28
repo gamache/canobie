@@ -1,4 +1,9 @@
 <section id="comingsoon">
   <h2>Coming soon...</h2>
+
+
+  <input id="field">
+  <input id="button" type="submit">
+
 </section>
 
