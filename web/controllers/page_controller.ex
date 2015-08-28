@@ -10,7 +10,7 @@ defmodule Canobie.PageController do
       nil ->
         conn |> put_status(404) |> render Canobie.ErrorView, "404.html"
       user ->
-        render conn, "user.html"
+        conn |> assign(:team_id, user.team_id) |> render "user.html"
     end
   end
 end

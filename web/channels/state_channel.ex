@@ -5,9 +5,9 @@ defmodule Canobie.StateChannel do
     socket = assign(socket, :team_id, team_id)
     case Canobie.State.get_by_team_id(team_id) do
       nil ->
-        {:ok, %{state: %{}}, socket}
+        {:ok, %{state: %{}, score: 0}, socket}
       state ->
-        {:ok, %{state: state.state}, socket}
+        {:ok, %{state: state.state, score: Canobie.State.score(state)}, socket}
     end
   end
 
@@ -19,7 +19,7 @@ defmodule Canobie.StateChannel do
         state = state
                 |> Canobie.State.apply_updates(updates)
                 |> Canobie.Repo.update!
-        broadcast! socket, "update", state.state
+        broadcast! socket, "update", %{state: state.state, score: Canobie.State.score(state)}
     end
     #broadcast! socket, "update", updates
     {:noreply, socket}

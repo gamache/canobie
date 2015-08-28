@@ -9,16 +9,19 @@ let stateSocket = new Socket("/socket");
 
 stateSocket.connect();
 
-let stateChannel = stateSocket.channel("state:0", {});
+let stateChannel = stateSocket.channel("state:"+TEAM_ID, {});
 stateChannel.join()
-  .receive("ok", resp => { update_state(resp.state); })
+  .receive("ok", resp => { update_state(resp); })
   .receive("error", resp => { console.log("oh noez", resp); });
 
-function update_state(state) {
+function update_state(response) {
+  console.log(response);
+  let state = response.state;
   for (var k in state) {
     let elt = document.getElementById(k);
     if (elt) elt.checked = state[k]==1;
   }
+  $("#score").html(response.score);
 }
 
 stateChannel.on("update", payload => {
