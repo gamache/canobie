@@ -1,4 +1,27 @@
-<section id="comingsoon">
-  <h2>Coming soon...</h2>
+<section id="manual-redirect">
+  <h1>Welcome!</h1>
+
+  <br>
+
+  <p>
+    Visit the URL with your Localytics first-initial-last-name email username,
+    e.g. <b>http://scavenger.localytics.com/hcipolla</b>, to begin.
+  </p>
+</section>
+
+<section id="rules">
+  <h1>Rules</h1>
+
+  <ul>
+    <li>Rides or tasks must involve 3/4 of your team to be checked off.</li>
+    <li>Don't check off items after 1pm.</li>
+    <li>Point values are secret. Optimize for fun.</li>
+    <li>
+      This application has no security features whatsoever.
+      Cheating is boring, and therefore disallowed.
+    </li>
+  </ul>
+
+  <h2>Enjoy!</h2>
 </section>
 
