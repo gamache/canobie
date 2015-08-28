@@ -59,16 +59,16 @@ defmodule Canobie.Rides do
   def car_rides do
     [
       %{
-        id: "antique-cars",
-        name: "Antique Cars",
-        desc: "Drive it like you stole it, in 1930.",
+        id: "canobie-500",
+        name: "Canobie 500",
+        desc: "Drive it like you stole it.",
         points: 20
       },
 
       %{
-        id: "canobie-500",
-        name: "Canobie 500",
-        desc: "Drive it like you stole it.",
+        id: "antique-cars",
+        name: "Antique Cars",
+        desc: "Drive it like you stole it, in 1930.",
         points: 20
       },
 
@@ -105,6 +105,13 @@ defmodule Canobie.Rides do
       },
 
       %{
+        id: "cups",
+        name: "Crazy Cups",
+        desc: "Canobie's teacup ride.",
+        points: 30
+      },
+
+      %{
         id: "roundup",
         name: "Zero Gravity",
         desc: "A tilting Round-Up ride.",
@@ -131,13 +138,6 @@ defmodule Canobie.Rides do
         desc: "Not really all that much like skateboarding.",
         points: 30
       },
-
-      %{
-        id: "carousel",
-        name: "Carousel",
-        desc: "A lovely antique carousel from 1902, featuring Wurlitzer sound.",
-        points: 30
-      }
     ]
   end
 
@@ -180,15 +180,56 @@ defmodule Canobie.Rides do
     ]
   end
 
+  def other_rides do
+    [
+      %{
+        id: "tiki",
+        name: "Tiki Maze",
+        desc: "Make it through this formerly-rotating hall of mirrors.",
+        points: 40
+      },
 
-  def rides do
+      %{
+        id: "caterpillar",
+        name: "Caterpillar",
+        desc: "A flat ride where the lights go out.",
+        points: 30
+      },
+
+      %{
+        id: "carousel",
+        name: "Carousel",
+        desc: "A lovely antique carousel from 1902, featuring Wurlitzer sound.",
+        points: 30
+      },
+
+      %{
+        id: "mine",
+        name: "Mine of Lost Souls",
+        desc: "Dark and spooky!",
+        points: 30
+      }
+    ]
+  end
+
+
+  def categories do
     [
       %{name: "Coasters", rides: coasters},
       %{name: "Water",    rides: water_rides},
       %{name: "Cars",     rides: car_rides},
       %{name: "Spinning", rides: spinning_rides},
-      %{name: "Aerial",   rides: aerial_rides}
+      %{name: "Aerial",   rides: aerial_rides},
+      %{name: "Other",    rides: other_rides}
     ]
+  end
+
+  def rides do
+    Enum.reduce(categories, [], fn(c, acc) -> acc ++ c[:rides] end)
+  end
+
+  def points_by_ride do
+    Enum.reduce(rides, %{}, fn(r, acc) -> Map.put(acc, r[:id], r[:points]) end)
   end
 
 end
