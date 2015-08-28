@@ -28,7 +28,7 @@ stateChannel.on("update", payload => {
   update_state(payload);
 });
 
-$("input.task").on("click", e => {
+$("input.item").on("click", e => {
   let val = $(e.srcElement).is(":checked") ? 1 : 0;
   var payload = {};
   payload[e.srcElement.id] = val;
