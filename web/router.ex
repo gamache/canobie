@@ -17,6 +17,7 @@ defmodule Canobie.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/admin", PageController, :admin
     get "/:name", PageController, :user
   end
 

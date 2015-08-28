@@ -1,0 +1,10 @@
+<div id="admin">
+  <h1>Leaderboard</h1>
+
+  <ol>
+  <%= for {team, score} <- @scores do %>
+    <li><%= score %> - <%= team.name %>
+  <% end %>
+  </ol>
+</div>
+

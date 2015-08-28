@@ -2,8 +2,6 @@
   TEAM_ID = <%= @team_id %>
 </script>
 
-<div id="score"></div>
-
 <section id="rides">
   <h1>Rides</h1>
 
