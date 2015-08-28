@@ -34,5 +34,9 @@ defmodule Canobie.State do
     new_state_map = Map.merge(state.state, updates)
     %{state | state: new_state_map}
   end
+
+  def starting_state do
+    Enum.reduce(Canobie.Rides.rides, %{}, fn(r, acc) -> Map.put(acc, r[:id], 0) end)
+  end
 end
 
