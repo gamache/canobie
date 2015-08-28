@@ -6,9 +6,6 @@ defmodule Canobie.Score do
     end)
 
     ride_groups = Enum.map(Canobie.Rides.categories, fn(c) -> c[:rides] end)
-    #require IEx
-    #IEx.pry
-
 
     base_score +
       Enum.sum(Enum.map(ride_groups, fn(g) -> bonus(state, g) end)) +
@@ -26,10 +23,12 @@ defmodule Canobie.Score do
       300 * bonus(state, group, Enum.count(group))
   end
 
+  # returns 1 or 0
   def bonus(state, group, min) do
     bonus(state, group, min, 0)
   end
 
+  # returns 1 or 0
   def bonus(state, group, min, acc) do
     if acc >= min do
       1
