@@ -16,14 +16,13 @@ defmodule Canobie.StateChannel do
   def handle_in("update", updates, socket) do
     case Canobie.State.get_by_team_id(socket.assigns[:team_id]) do
       nil ->
-        broadcast! socket, "update", %{poop: true}
+        false # no op
       state ->
         state = state
                 |> Canobie.State.apply_updates(updates)
                 |> Canobie.Repo.update!
         broadcast! socket, "update", %{state: state.state, score: Canobie.Score.score(state)}
     end
-    #broadcast! socket, "update", updates
     {:noreply, socket}
   end
 
